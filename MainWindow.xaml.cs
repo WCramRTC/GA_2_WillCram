@@ -20,9 +20,13 @@ namespace GA_2_WillCram
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Buttons, Labels, and TextBoxes
+
         public MainWindow()
         {
             InitializeComponent();
-        }
-    }
-}
+        } // MainWindow()
+
+    } // class
+
+} // namespace
