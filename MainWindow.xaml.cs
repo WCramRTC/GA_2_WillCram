@@ -27,6 +27,19 @@ namespace GA_2_WillCram
             InitializeComponent();
         } // MainWindow()
 
+        // Display a full name in a Message Box
+        
+        private void btnFullName_Click(object sender, RoutedEventArgs e)
+        {
+
+        } // btnFullName_Click
+
+        // Add or Subtract Two Numbers - Display in a text box
+
+
+        // Display a single character from a Word in a Label
+
+
     } // class
 
 } // namespace
