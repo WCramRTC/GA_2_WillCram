@@ -20,8 +20,7 @@
         <TextBox x:Name="txtNumber2" Canvas.Left="357" TextWrapping="Wrap" Canvas.Top="180" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Button x:Name="btnSubtract" Content="Subtract" Canvas.Left="320" Canvas.Top="212" Width="74" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnSubtract_Click"/>
         <Button x:Name="btnAdd" Content="Add" Canvas.Left="149" Canvas.Top="212" Width="74" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnAdd_Click"/>
-        <Label Content="Result" Canvas.Left="523" Canvas.Top="176" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Label x:Name="txtDisplayResult" Content="Result" Canvas.Left="622" Canvas.Top="176" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label x:Name="lblEquation" Content="Sign" Canvas.Left="622" Canvas.Top="176" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Label Content="Display a Letter from a Word - Textbox" Canvas.Left="52" Canvas.Top="280" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Enter a Word" Canvas.Left="52" Canvas.Top="316" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="txtWord" Canvas.Left="159" TextWrapping="Wrap" Canvas.Top="320" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>

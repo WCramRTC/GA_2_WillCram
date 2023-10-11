@@ -70,27 +70,161 @@ namespace GA_2_WillCram
             return textBox1NotEmpty && textBox2NotEmpty;
         } // ValidateTextBoxes
 
-
+        //---------------------------------------------------------
 
         // Add or Subtract Two Numbers - Display in a text box
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            AddMethod();
+        }
 
+        public void AddMethod()
+        {
+            string number1String = txtNumber1.Text;
+            string number2String = txtNumber2.Text;
+
+            bool numbersAreNotEmpty = ValidateTextBoxes(number1String, number2String);
+
+            if (numbersAreNotEmpty)
+            {
+                //double number1 = double.Parse(number1String);
+                //double number2 = double.Parse(number2String);
+
+                double number1 = 0;
+                double number2 = 0;
+
+                bool number1IsANumber = double.TryParse(number1String, out number1);
+                bool number2IsANumber = double.TryParse(number2String, out number2);
+
+                bool bothAreNumbers = number1IsANumber && number2IsANumber;
+
+                if (bothAreNumbers)
+                {
+                    // Display the full equation and result to the label, lblEquation
+                    // Example :
+                    // If number 1 is 20, and number 2 is 10, and they add the numbers, we will display
+                    // 20 + 10 = 30
+
+                    double result = number1 + number2;
+
+                    string formattedResult = $"{number1} + {number2} = {result}";
+                    lblEquation.Content = formattedResult;
+
+                }
+                else
+                {
+                    MessageBox.Show("Please enter 2 VALID numbers");
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter in 2 numbers");
+            }
         }
 
         private void btnSubtract_Click(object sender, RoutedEventArgs e)
         {
-
+            SubtractMethod();
         }
 
+        public void SubtractMethod()
+        {
+            string number1String = txtNumber1.Text;
+            string number2String = txtNumber2.Text;
+
+            bool numbersAreNotEmpty = ValidateTextBoxes(number1String, number2String);
+
+            if (numbersAreNotEmpty)
+            {
+                //double number1 = double.Parse(number1String);
+                //double number2 = double.Parse(number2String);
+
+                double number1 = 0;
+                double number2 = 0;
+
+                bool number1IsANumber = double.TryParse(number1String, out number1);
+                bool number2IsANumber = double.TryParse(number2String, out number2);
+
+                bool bothAreNumbers = number1IsANumber && number2IsANumber;
+
+                if (bothAreNumbers)
+                {
+                    // Display the full equation and result to the label, lblEquation
+                    // Example :
+                    // If number 1 is 20, and number 2 is 10, and they add the numbers, we will display
+                    // 20 + 10 = 30
+
+                    double result = number1 - number2;
+
+                    string formattedResult = $"{number1} - {number2} = {result}";
+                    lblEquation.Content = formattedResult;
+
+                }
+                else
+                {
+                    MessageBox.Show("Please enter 2 VALID numbers");
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter in 2 numbers");
+            }
+        }
+        //----------------------------------------------
 
         // Display a single character from a Word in a Label
 
         private void btnDisplayLetter_Click(object sender, RoutedEventArgs e)
         {
+            DisplayCharacterMethod();
+        } // btnDisplayLetter_Click
 
-        }
+        public void DisplayCharacterMethod()
+        {
+            // Validate if Text Boxes are empty
+            string word = txtWord.Text;
+            string characterNumber = txtSingleCharacter.Text;
+            bool boxesAreNotEmpty = ValidateTextBoxes(word, characterNumber);
+
+            if(boxesAreNotEmpty)
+            {
+                // Check if valid number entered
+                int selectedCharacter = -1;
+                bool isCharacterSelected = int.TryParse(characterNumber, out selectedCharacter);
+
+                // Check if number is in range
+                // All arrays START at an index of 0
+                // All arrays Last Index is array.Length - 1
+                // We need to make sure the number entered is between 0 and array.Length - 1
+                // All strings are arrays
+
+                int numberOfCharacters = word.Length;
+                bool numberInRange = selectedCharacter > 0 && selectedCharacter < numberOfCharacters;
+
+                if(numberInRange)
+                {
+                    char selectedChar = word[selectedCharacter];
+                    txtDispayLetter.Text = selectedChar.ToString();
+                }
+                else
+                {
+                    MessageBox.Show($"Please enter a valid number in between 0 and {numberOfCharacters - 1}");
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Enter a word and number");
+            }
+
+
+        } // DisplayCharacterMethod
 
     } // class
 
