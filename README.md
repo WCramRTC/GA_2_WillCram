@@ -58,13 +58,6 @@ Also, you will be honing your C# skills. You will be using conditions, variables
 
 
 ## Step By Step
-<div 
-style="border: 2px solid white;
-padding: 3px;
-padding-left: 10px;
-border-radius: 5px; 
-">
-
 ### Part 1 - Start your project
 1. Start your project
     1. Create a new WPF Project
@@ -74,15 +67,6 @@ border-radius: 5px;
 
     **Refer to Guided Assignment 1 if you need to refresh**
 
-</div>
-
-<div 
-style="border: 2px solid white;
-padding: 3px;
-padding-left: 10px;
-border-radius: 5px; 
-">
-
 ### Part 2 - Message Box - Display Full Name
 
 1. Something
@@ -91,29 +75,11 @@ border-radius: 5px;
     2. 
 
 #### 2. SOmething else
-
-</div>
-
-<div 
-style="border: 2px solid white;
-padding: 3px;
-padding-left: 10px;
-border-radius: 5px; 
-">
-
 ### Part 3
 #### Step 1
 #### Step 2
 #### Step 3
 #### Step 4
-
-</div>
-<div 
-style="border: 2px solid white;
-padding: 3px;
-padding-left: 10px;
-border-radius: 5px; 
-">
 
 ### Part 4
 #### Step 1
@@ -121,7 +87,7 @@ border-radius: 5px;
 #### Step 3
 #### Step 4
 
-</div>
+
 
 ## Result
 ## Submission
