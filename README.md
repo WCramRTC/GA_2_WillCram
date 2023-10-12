@@ -89,7 +89,7 @@ Also, you will be honing your C# skills. You will be using conditions, variables
     * 2 Text Boxes
     * 1 Button
 
-![Example Result for Part 1](GA_2_Images\Part_2_Result.png)
+![Example Result for Part 1](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Part_2_Result.png)
 
 1.  Add the controls to your GUI  
     In this step you will learn how to setup all your controls needed. Labels, Buttons, and TextBoxes. In the following parts, you will repeat these steps.
@@ -101,7 +101,7 @@ Also, you will be honing your C# skills. You will be using conditions, variables
     1. Adding a Label  
     In the toolbox ( Located to the left. You can use the hotkey **`ctrl + alt + x`** if you can't see it ), you'll see a list of WPF controls. Click and drag a Label control onto your view.
 
-        ![Dropping a Label Onto our WPF Application](GA_2_Images\Label_Adding.gif)
+        ![Dropping a Label Onto our WPF Application](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Label_Adding.gif)
 
     2. Change what the label says
         1. When you first place your label, it will say "Label". You can change this by changing the Label **`Content`** property, in the Xaml.
@@ -122,14 +122,14 @@ Also, you will be honing your C# skills. You will be using conditions, variables
 
         3. Place the label with YOUR NAME in the upper right hand corner of the app. The rest will depend on where you next controls are.
 
-          ![Showing all 4 Labels](GA_2_Images\Adding_Labels.png)
+          ![Showing all 4 Labels](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Adding_Labels.png)
 
 ---
 
 * **TextBox**
 
     1. From the toolbar drag 2 TextBoxs onto your form
-            ![Dropping a Label Onto our WPF Application](GA_2_Images\Adding_Textboxes.gif)
+            ![Dropping a Label Onto our WPF Application](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Adding_Textboxes.gif)
 
     2. In the .xaml code, delete the Property `Text="TextBox"` from each TextBox control. This will clear the text box.
     
@@ -152,14 +152,14 @@ Also, you will be honing your C# skills. You will be using conditions, variables
 
     3. Your Text Box should now be empty. Arrange your labels next to your text boxes so it's easy to indentify what a textbox is for.
 
-        ![Dropping a Label Onto our WPF Application](GA_2_Images\Arranged_Text_Boxes.png)
+        ![Dropping a Label Onto our WPF Application](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Arranged_Text_Boxes.png)
 
 ---
 
 * **Button**
 
     1. Drag a Button from your toolbox onto the Canvas.
-        ![Drop a button from the toolbox onto your canvas](GA_2_Images\Adding_A_Button.gif)
+        ![Drop a button from the toolbox onto your canvas](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Adding_A_Button.gif)
 
     2. You will change the **`Content`** of the label to say **Display Full Name**.
 
@@ -171,7 +171,7 @@ Also, you will be honing your C# skills. You will be using conditions, variables
 
 **Result**
 Your form should look similar to this.
-![Example Result for Part 1](GA_2_Images\Part_2_Result.png)
+![Example Result for Part 1](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Part_2_Result.png)
 
 ---
 
@@ -186,7 +186,7 @@ _You only need to name controls you plan to interact with in your code.
 1. Click on the **`TextBox`** next to your First Name label.  
 In your properties window ( Located in the bottom right. Hotkey **`F4`**), the very top field should say Name **No Name**.
 
-    ![Dropping a Label Onto our WPF Application](GA_2_Images\Properties_Window.png)
+    ![Dropping a Label Onto our WPF Application](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Properties_Window.png)
 
 2. Change the name of your **`2 TextBoxes and 1 Button`**. Names provided below.
 
@@ -214,7 +214,7 @@ They don't have to be these exact prefaces. But make them consistent**_
 #### 3. Add a Click Event to your button
 A click event is a method, written in your C#, that when properly attached, runs when a button is clicked. Each button can have it's own unique Click Event. To add an Event, just double click your button.
 
-![Adding an event by double clicking a button](GA_2_Images\Double_Click_Event.gif)
+![Adding an event by double clicking a button](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Double_Click_Event.gif)
 
 **Result**
 You should now see a method appear in your `.cs` code with 
