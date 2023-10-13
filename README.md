@@ -238,7 +238,117 @@ You can also the a `Click` property added to your button, with the same method n
 
 #### 4. Writing your C# code...
 
-Work in progress
+1. Message Box in a Button
+
+    1. Since this the our first button, lets test that it works.  
+    In your code, Hotkey `F7`, you will find you btnFullName_Click Event.
+
+    ```csharp
+    private void btnFullName_Click(object sender, RoutedEventArgs e)
+    {
+
+    } // btnFullName_Click
+    ```
+    
+    2. This method runs everytime you click your button. To test it out we are going to put a `MessageBox.Show()` inside our button and run our code. If it works we should see a pop up appear when we click the button.
+
+    ```csharp
+       private void btnFullName_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("This event works");
+    } // btnFullName_Click
+    ```
+
+**Result**
+
+_Well be greating the rest of the GUI in the following problems_
+![Testing our Click Event on Display Full Name Button](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Test_Button_FullName.gif)
+
+---
+
+2. Displaying the Users Name
+    Now that we know our button is working, it's time to grab the text from our two name text boxes.  
+
+    Inside of our Click event we are going to grab the text from `txtFirstName` and save it in a variable.
+    
+    _**To grab Text from a textbox, uses the .Text property!**_
+
+    1. Inside of our Click Event declare a string variable called `string firstName` and assign it the value from the `txtFirstName` text box by using the `.Text` property.
+
+    2. Using our `MessageBox.Show()` pass in `firstName` and run our code.  
+    Test it by typing something in the first name box and hitting our button. That message should appear in the message box!
+    
+    ```csharp
+    private void btnFullName_Click(object sender, RoutedEventArgs e)
+    {
+        // Grab the Text from the txtFirstNameBox.Text
+        // Save it to a string variable
+        string firstName = txtFirstName.Text;
+
+        // Display the string variable in the message box
+        MessageBox.Show(firstName);
+    } // btnFullName_Click
+    ```
+
+    ![Testing we are getting the Text from our First Name Box](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Demo_FirstName.gif)
+
+---
+
+3. Finish the code for the Full Name
+
+    1. Now that you know how to pull the text from one box, do the same thing for the second box.
+
+    2. After that create a third string variable called `string fullName` and use it to hold the `firstName` and `lastName` variables, concatenated together.
+
+    3. Once all that is done, use 
+
+
+**Result**
+
+```csharp
+private void btnFullName_Click(object sender, RoutedEventArgs e)
+{
+    DisplayFullName();
+
+} // btnFullName_Click
+
+// Organizing my code into methods
+public void DisplayFullName()
+{
+    // Declare two string variables to hold our first and last name
+    //bool firstNameNotEmpty = txtFirstName.Text != "";
+    //bool lastNameNoteEmpty = txtLastName.Text != "";
+
+    bool nameBoxesNotEmpty = ValidateTextBoxes(txtFirstName.Text, txtLastName.Text);
+
+    if (nameBoxesNotEmpty)
+    {
+        string firstName = txtFirstName.Text;
+        string lastName = txtLastName.Text;
+
+        // Declare a third string, full name
+        // Concatenate ( combine ) the first and last name into one long string
+        string fullName = $"{firstName} {lastName}";
+
+        // Display full name on button click
+        MessageBox.Show(fullName);
+    }
+    else
+    {
+        MessageBox.Show("Please enter your first and last name in the text boxes");
+    }
+} // DisplayFullName
+
+public bool ValidateTextBoxes(string textBox1, string textBox2)
+{
+    bool textBox1NotEmpty = textBox1 != "";
+    bool textBox2NotEmpty = textBox2 != "";
+
+    return textBox1NotEmpty && textBox2NotEmpty;
+} // ValidateTextBoxes
+
+
+```
 
 ---
 ### Part 3
