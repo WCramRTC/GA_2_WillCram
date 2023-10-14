@@ -1,4 +1,3 @@
-# Guided Assignment 2
 ## Assignment
 This assignment is the introduce the WPF controls
 * Labels
@@ -300,29 +299,26 @@ _Well be greating the rest of the GUI in the following problems_
 
     2. After that create a third string variable called `string fullName` and use it to hold the `firstName` and `lastName` variables, concatenated together.
 
-    3. Once all that is done, use 
+    _Refresher : Concatenate means to combine two objects together. In Programming it means we are combining strings together._
+    
+    ```csharp
+    string greeting = "Good Morning";
+    string group = "Everyone!";
+    string concatenate = greeting + ", " + group;
+    // Result
+    Console.WriteLine(concatenate); 
+    Good Morning, Everyone!
+    ```
 
+    3. Once completed you should see the full name appear when the button is clicked.
 
 **Result**
+![Your final result should display the text from both text boxes in your message box.](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Step_1_Result.gif)
+
 
 ```csharp
 private void btnFullName_Click(object sender, RoutedEventArgs e)
 {
-    DisplayFullName();
-
-} // btnFullName_Click
-
-// Organizing my code into methods
-public void DisplayFullName()
-{
-    // Declare two string variables to hold our first and last name
-    //bool firstNameNotEmpty = txtFirstName.Text != "";
-    //bool lastNameNoteEmpty = txtLastName.Text != "";
-
-    bool nameBoxesNotEmpty = ValidateTextBoxes(txtFirstName.Text, txtLastName.Text);
-
-    if (nameBoxesNotEmpty)
-    {
         string firstName = txtFirstName.Text;
         string lastName = txtLastName.Text;
 
@@ -332,30 +328,257 @@ public void DisplayFullName()
 
         // Display full name on button click
         MessageBox.Show(fullName);
-    }
-    else
-    {
-        MessageBox.Show("Please enter your first and last name in the text boxes");
-    }
-} // DisplayFullName
 
-public bool ValidateTextBoxes(string textBox1, string textBox2)
-{
-    bool textBox1NotEmpty = textBox1 != "";
-    bool textBox2NotEmpty = textBox2 != "";
-
-    return textBox1NotEmpty && textBox2NotEmpty;
-} // ValidateTextBoxes
-
-
+} // btnFullName_Click
 ```
 
+#### 4. Save your project, Commit, and Push
+
+1. Get into the pattern of constantly saving your project as you work on it. Then commiting and push your code everytime you make large changes. No one wants to redo work if our project crashes.
+
 ---
-### Part 3
-#### Step 1
-#### Step 2
-#### Step 3
-#### Step 4
+### Part 3 - Label - Perform math and display the result in a label
+
+**Requirements**
+
+    * 4 Labels
+    * 2 Text Boxes
+    * 2 Button
+
+#### 1. - Setup your GUI - Controls, Names, and Click Events
+1. Following the same process as Part 2, setup your GUI. You will add 
+    * 4 Labels  
+        1. Content: _Perform a Calculation - Label_
+        2. Content: _Number 1_
+        3. Content: _Number 2_
+        4. Name: `lblSign` - Content: _Sign_  
+            * **THIS NEEDS TO BE NAMED**, we will being changing it with code  
+            Name: `lblEquation`
+    * 2 TextBoxes
+        1. Name: `txtNumber1`
+        2. Name: `txtNumber2`
+    * 2 Buttons
+        1. Name: `btnAdd` - Content : _Add_
+            * Double click after naming to attach a Click Event
+        2. Name: `btnSubtract` - Content : _Subtract_
+            * Double click after naming to attach a Click Event
+
+![An example of how your GUI could look](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Part_3_GUI.png)
+
+_MainWindow.xaml_
+```html
+        <Label Content="Perform a Calculation - Label" />
+        <Label Content="Number 1" />
+        <TextBox x:Name="txtNumber1" />
+        <Label Content="Number 2"/>
+        <TextBox x:Name="txtNumber2" />
+        <Button 
+            x:Name="btnSubtract"   
+            Content="Subtract"  
+            Click="btnSubtract_Click" />
+        <Button 
+            x:Name="btnAdd" 
+            Content="Add" 
+            Click="btnAdd_Click" />
+        <!-- Remember to Name this Label -->
+        <Label x:Name="lblEquation" Content="Sign" />
+```
+
+_MainWindow.xaml.cs_
+```csharp
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnSubtract_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+```
+
+#### 2. - Writing Your CSharp Code
+1. This process will start the same as Part 2. 
+    1. Create variables to hold the values from our text Boxes.
+    2. Test to make sure they work, but this time with our Label.
+
+    _Change Label Content in Code_
+    ```csharp
+    private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+        // We can change the .Content property of a named label
+        // This lets us what changes while the app is running
+            lblEquation.Content = "New Message";
+        }
+    ```
+    ![Demonstrating Changing a label in code](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Change_Label_Example.gif)
+    
+    3. Putting everything together ( concatenating and display the result to your label ) output a string that looks like `5 + 7 = 57`. If number1 equaled 5 and number2 equaled.
+
+    ```csharp
+     private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+        
+            string number1 = txtNumber1.Text;
+            string number2 = txtNumber2.Text;
+            // For readability I decided to add a sign and equal variable
+            string sign = "+";
+            string equalSign = "=";
+            string result = number1 + number2;
+            // I use a string literal to make it easier to format my equation with lots of variables
+            string equation = $"{number1} {sign} {number2} {equalSign} {result}";
+
+            // Displaying the equation string
+            lblEquation.Content = equation;
+        }
+    ```
+
+ ![Adding our strings](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Testing_Add_W_Strings.gif)
+
+#### 3. - Parsing Into Numbers to Perform Math
+You probably noticed a problem here. We didn't do math, we concatenated our strings 5 + 7 to create 57. In order to do math we need to tell the computer to recognize 5 and 7 as numbers. To do that we are going to Parse them.
+
+Using the `type.Parse(string)` method, we try to convert a string argument into a different type. If successful we save the converted type. If unsuccessful the application will crash unless properly dealt with. See GitHub repo for my approach to preventing a crash.
+
+_Parsing Strings into different Types_
+```csharp
+    string numberString = 7; // Computer sees a number
+    int number = int.Parse(numberString); // Tries to convert to a number
+
+    string addingStrimgs = numberString + numberString; // 77
+    int addingNumbers = number + number; // Result : 14
+```
+
+1. Going back to our code let's change a few things.
+
+_Original_
+```csharp
+     private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+        
+            string number1 = txtNumber1.Text;
+            string number2 = txtNumber2.Text;
+            // For readability I decided to add a sign and equal variable
+            string sign = "+";
+            string equalSign = "=";
+            string result = number1 + number2;
+            // I use a string literal to make it easier to format my equation with lots of variables
+            string equation = $"{number1} {sign} {number2} {equalSign} {result}";
+
+            // Displaying the equation string
+            lblEquation.Content = equation;
+        }
+```
+2. Create 2 new variables under our first 2 string variables.
+    1. `int num1;`
+    2. `int num2;`
+
+3. Then parse our string number1 and string number2 using `int.Parse`. Depending on what you are trying to parse you can also do doubles, bools, etc...
+    1. `int num1 = int.Parse(number1);`
+    2. `int num2 = int.Parse(number2);`
+
+4. Finally, for our `result` variable, change the type to `int` and replace `number1 + number2` with `num1 + num2`. The should result in you performing math. Our string equation should continue to work properly.  
+    Replace: `string result = number1 + number2`;
+    New: `int result = num1 + num2`;
+
+_New_
+```csharp
+     private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+        
+            string number1 = txtNumber1.Text;
+            string number2 = txtNumber2.Text;
+            // Parsing my numbers
+            int num1 = int.Parse(number1);
+            int num2 = int.Parse(number2);
+
+            string sign = "+";
+            string equalSign = "=";
+            // Doing math with our new int
+            int result = num1 + num2;
+     
+            string equation = $"{number1} {sign} {number2} {equalSign} {result}";
+
+            // Displaying the equation string
+            lblEquation.Content = equation;
+        }
+```
+![Adding our Numbers Together](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Math_Addition.gif)
+
+
+#### 4. Subtraction - The Easy Way ( Copy and Paste )
+1. Now with our addition button done lets think like programmers and quickly finish the Subtraction button.
+
+    Copy all the code INSIDE of your Addition Button. ( Remember `ctrl + c` to copy)
+```csharp
+     private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+        // COPY FROM HERE ------------------
+            string number1 = txtNumber1.Text;
+            string number2 = txtNumber2.Text;
+            int num1 = int.Parse(number1);
+            int num2 = int.Parse(number2);
+
+            string sign = "+";
+            string equalSign = "=";
+            int result = num1 + num2;
+     
+            string equation = $"{number1} {sign} {number2} {equalSign} {result}";
+
+            lblEquation.Content = equation;
+        // TO HERE -------------------------------
+        }
+```
+
+    and paste that code inside of your Subtract Click Event.
+
+
+```csharp
+     private void btnSubtract_Click(object sender, RoutedEventArgs e)
+        {
+            string number1 = txtNumber1.Text;
+            string number2 = txtNumber2.Text;
+            int num1 = int.Parse(number1);
+            int num2 = int.Parse(number2);
+
+            string sign = "+";
+            string equalSign = "=";
+            int result = num1 + num2;
+     
+            string equation = $"{number1} {sign} {number2} {equalSign} {result}";
+
+            lblEquation.Content = equation;
+        }
+```
+
+2. And since the only real difference between our Add and Subtract methods are switching `+` to `-` then we just change   
+`sign = "-"`  
+`result = num1 - num2;`.
+
+```csharp
+     private void btnSubtract_Click(object sender, RoutedEventArgs e)
+        {
+            string number1 = txtNumber1.Text;
+            string number2 = txtNumber2.Text;
+            int num1 = int.Parse(number1);
+            int num2 = int.Parse(number2);
+
+            string sign = "-"; // Changes + to -
+            string equalSign = "=";
+            int result = num1 - num2; // Changed + to -
+     
+            string equation = $"{number1} {sign} {number2} {equalSign} {result}";
+
+            lblEquation.Content = equation;
+        }
+```
+
+![Subtracting Numbers](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Math_Subtraction.gif)
+
+#### 5. Save, Commit, Push
+Now done with Part 3. Save, Commit, and Push your project.
+
+--------------------------
 
 ### Part 4
 #### Step 1
