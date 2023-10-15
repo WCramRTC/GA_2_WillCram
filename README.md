@@ -194,7 +194,7 @@ In your properties window ( Located in the bottom right. Hotkey **`F4`**), the v
 * txtLastName
 * btnFullName
 
-_**Naming Conventions: Your controls should start with consistent naming conventions  
+> _**Naming Conventions: Your controls should start with consistent naming conventions  
 TextBox : txt  
 Button : btn  
 Label : lbl  
@@ -299,7 +299,7 @@ _Well be greating the rest of the GUI in the following problems_
 
     2. After that create a third string variable called `string fullName` and use it to hold the `firstName` and `lastName` variables, concatenated together.
 
-    _Refresher : Concatenate means to combine two objects together. In Programming it means we are combining strings together._
+   > _Refresher : Concatenate means to combine two objects together. In Programming it means we are combining strings together._
     
     ```csharp
     string greeting = "Good Morning";
@@ -339,29 +339,23 @@ private void btnFullName_Click(object sender, RoutedEventArgs e)
 ---
 ### Part 3 - Label - Perform math and display the result in a label
 
-**Requirements**
-
-    * 4 Labels
-    * 2 Text Boxes
-    * 2 Button
-
 #### 1. - Setup your GUI - Controls, Names, and Click Events
 1. Following the same process as Part 2, setup your GUI. You will add 
-    * 4 Labels  
-        1. Content: _Perform a Calculation - Label_
-        2. Content: _Number 1_
-        3. Content: _Number 2_
-        4. Name: `lblSign` - Content: _Sign_  
-            * **THIS NEEDS TO BE NAMED**, we will being changing it with code  
-            Name: `lblEquation`
-    * 2 TextBoxes
-        1. Name: `txtNumber1`
-        2. Name: `txtNumber2`
-    * 2 Buttons
-        1. Name: `btnAdd` - Content : _Add_
-            * Double click after naming to attach a Click Event
-        2. Name: `btnSubtract` - Content : _Subtract_
-            * Double click after naming to attach a Click Event
+>    * Labels - 4
+>        1. Content: _Perform a Calculation - Label_
+>        2. Content: _Number 1_
+>        3. Content: _Number 2_
+>        4. Name: `lblSign` - Content: _Sign_  
+>            * **THIS NEEDS TO BE NAMED**, we will being changing it with code  
+>            Name: `lblEquation`
+>    * TextBoxes - 2
+>        1. Name: `txtNumber1`
+>        2. Name: `txtNumber2`
+>    * Buttons - 2
+>        1. Name: `btnAdd` - Content : _Add_
+>            * Double click after naming to attach a Click Event
+>        2. Name: `btnSubtract` - Content : _Subtract_
+>            * Double click after naming to attach a Click Event
 
 ![An example of how your GUI could look](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Part_3_GUI.png)
 
@@ -403,6 +397,12 @@ _MainWindow.xaml.cs_
     2. Test to make sure they work, but this time with our Label.
 
     _Change Label Content in Code_
+
+    > The `labelName.Content` property allows you to get or set the value.
+    >
+    > Set : `labelName.Content = "New Message":`  
+    > Get: `string value = labelName.Content;`    
+
     ```csharp
     private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -438,12 +438,12 @@ _MainWindow.xaml.cs_
 #### 3. - Parsing Into Numbers to Perform Math
 You probably noticed a problem here. We didn't do math, we concatenated our strings 5 + 7 to create 57. In order to do math we need to tell the computer to recognize 5 and 7 as numbers. To do that we are going to Parse them.
 
-Using the `type.Parse(string)` method, we try to convert a string argument into a different type. If successful we save the converted type. If unsuccessful the application will crash unless properly dealt with. See GitHub repo for my approach to preventing a crash.
+> Using the `type.Parse(string)` method, we try to convert a string argument into a different type. If successful we save the converted type. If unsuccessful the application will crash unless properly dealt with. See GitHub repo for my approach to preventing a crash.
 
 _Parsing Strings into different Types_
 ```csharp
     string numberString = 7; // Computer sees a number
-    int number = int.Parse(numberString); // Tries to convert to a number
+    int number = int.Parse(numberString); // Tries to convert to a whole number ( int )
 
     string addingStrimgs = numberString + numberString; // 77
     int addingNumbers = number + number; // Result : 14
@@ -530,7 +530,7 @@ _New_
         }
 ```
 
-    and paste that code inside of your Subtract Click Event.
+and paste that code inside of your Subtract Click Event.
 
 
 ```csharp
@@ -580,13 +580,133 @@ Now done with Part 3. Save, Commit, and Push your project.
 
 --------------------------
 
-### Part 4
-#### Step 1
-#### Step 2
-#### Step 3
-#### Step 4
+### Part 4 - Text Box - Display the selected Character
+#### 1. Add the controls, names, and Click Event
+
+> * Labels - 3
+>    1. Content: *Display a Letter from a Word - Text Box*
+>    2. Content: *Enter a word*
+>    3. Name: `lblNumberOfLetters` - Content: *Enter a number*
+> * TextBox - 2
+>    1. Name: `txtWord`
+>       * ***Double Click This TextBox***  
+>           This will create a _TextChange Event. This is an event that is called everytime the text inside of this text box is changed
+>    2. Name: `txtNumber`
+>    3. Name: `txtDisplayLetter`
+>* Button - 1
+>    1. Name: `btnDisplayLetter` - Content: *Display Letter*
+
+![Example of a possible Gui for Part 4](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Part_4_GUI.png)
+
+*MainWindow.xaml*
+```html
+  <Label Content="Display a Letter from a Word - Textbox" />
+  <Label Content="Enter a Word" />
+  <Label 
+    x:Name="lblNumberOfLetters" 
+    Content="Enter a number"  />
+  <TextBox 
+    x:Name="txtWord" 
+    TextChanged="txtWord_TextChanged" />
+  <TextBox x:Name="txtCharIndex" />
+  <Button 
+    x:Name="btnDisplayLetter" 
+    Content="Display Letter" 
+    Click="btnDisplayLetter_Click"/>
+  <TextBox x:Name="txtDispayLetter" />
+
+```
+*MainWindow.xaml.cs*
+```csharp
+
+    private void txtWord_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    } // txtWord_TextChanged
+
+    private void btnDisplayLetter_Click(object sender, RoutedEventArgs e)
+    {
+
+    } // btnDisplayLetter_Click
+
+```
+
+#### 2. Write the code
+
+> For this part we ask the user for a word and a number. Using our knowledge of `arrays` we take the users number, parse it, and use it as an index to display the selected character.
+
+1. Let's start with the `txtWord_TextChanged` event. We're going to do something cool. We're gonna write some code so that when the user types their word in, it'll display the range of numbers the user can choose from in our `lblNumberOfLetters`.
+
+```csharp
+private void txtWord_TextChanged(object sender, TextChangedEventArgs e)
+{
+    string usersWord = txtWord.Text; // Getting users word
+    int stringLength = usersWord.Length; // Getting how many characters are in the word
+    int lastIndex = stringLength - 1; // Getting the last index of the word
+    string formatedString = $"Enter a number between 0 and {lastIndex}"; // Displaying the range of 0 to the last index
+
+    // Displaying it to our label
+    lblNumberOfLetters.Content = formatedString;
+}
+```
+
+> Whats happening here.
+> 1. First we are getting the users word.
+> 2. C# looks at strings as an `array of characters`.  
+> Since all arrays have a `.Length` property that tells us how many elements there are. We are using `usersWord.Length` to tell us how many letter there are.  
+>  Example :   
+>  William has a .Length of 7  
+>  Sandy has a .Length of 5
+> 3. The length gives us how many characters there are in an array. But the last index is **ALWAYS** `.Length - 1`. So the last index of William would be 6  
+> W I L L I A M  
+> 0 1 2 3 4 5 6
+> 4. We've now gone ahead and formatted a string that will be updated after every keystroke.   
+> `$"Enter a number between 0 and {lastIndex}";`  
+> Which will tell the user the range of numbers they can choose from without breaking our code.   
+> ***Choosing a larger or smaller number will result in an index out of bounds error***
+> 5. Lastly, we assign out string as a value to our `lblNumberOfLetters.Content`. All of this will show the user a real time update of numbers to select from.
+
+![Demonstrating Real Time Number Range Update](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Number_Update.gif)
+
+2. And with that done, our final code is simple.
+
+    In our `btnDisplayLetter_Click` Event  
+    1. Create a variable to hold the text from `txtWord`.
+    2. Create a variable ( or variables ) to get the txt from `txtCharIndex`. And since we plan to use it for an `INDEX`, you need to parse it as an `int`.
+    > An Index is always an integer ( a whole number )
+    3. Then you can create a `char` variable ( a single character ) with the following code.
+    
+    `char selectedChar = usersWord[usersNumber]`
+    > Replace usersWord with the variable you made to hold the users entered word. And replace usersNumber with your variable holding the int. Don't forget the brackets! **[ ]**
+
+    4. Lastly, assign the character to your `txtDisplayLetter.Text`. Make sure to `.ToString()` your selected char.   
+    `txtDisplayLetter.Text = selectedChar.ToString();`
+    > Instead of .Content, you change the .Text for textboxes.
+
+***MainWindow.xaml.cs (Your variable names might be different. That's OK)***
+```csharp
+  private void btnDisplayLetter_Click(object sender, RoutedEventArgs e)
+  {
+      string userWord = txtWord.Text;
+      // Grabbing the word and parsing in one line
+      int usersNumber = int.Parse(txtCharIndex.Text);
+      char selectedChar = userWord[usersNumber];
+
+      txtDisplayLetter.Text = selectedChar.ToString();
+  } // btnDisplayLetter_Click
+```
+
+And that's it! If everythings done correctly, when you enter a word, a valid number, and press the button it should display the selected letter.
+
+![Demonstrating Real Time Number Range Update](https://raw.githubusercontent.com/WCramRTC/GA_Images/main/GA_2_Images/Part_4_Result.gif)
 
 
+#### 3. Save, Commit, and Push
+Your done! Save, commit your project, and push it online.
 
 ## Result
+You should now have all 3 Parts on a single application. And working. Submit for points and feedback!
+
+
 ## Submission
+After your final commit and push, submit your repo URL to the textbox in the assignment on Canvas.
