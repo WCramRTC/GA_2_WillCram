@@ -31,7 +31,12 @@ namespace GA_2_WillCram
         
         private void btnFullName_Click(object sender, RoutedEventArgs e)
         {
-            DisplayFullName();
+            //DisplayFullName();
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string concatenate = firstName + " " + lastName;
+
+            MessageBox.Show(concatenate);
 
         } // btnFullName_Click
 
@@ -188,7 +193,7 @@ namespace GA_2_WillCram
         {
             // Validate if Text Boxes are empty
             string word = txtWord.Text;
-            string characterNumber = txtSingleCharacter.Text;
+            string characterNumber = txtCharIndex.Text;
             bool boxesAreNotEmpty = ValidateTextBoxes(word, characterNumber);
 
             if(boxesAreNotEmpty)
@@ -226,6 +231,15 @@ namespace GA_2_WillCram
 
         } // DisplayCharacterMethod
 
+        private void txtWord_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string usersWord = txtWord.Text;
+            int stringLength = usersWord.Length;
+            int lastIndex = stringLength - 1;
+            string formatedString = $"Enter a number between 0 and {lastIndex}";
+
+            lblNumberOfLetters.Content = formatedString;
+        }
     } // class
 
 } // namespace
