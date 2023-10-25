@@ -591,7 +591,7 @@ Now done with Part 3. Save, Commit, and Push your project.
 >    1. Name: `txtWord`
 >       * ***Double Click This TextBox***  
 >           This will create a _TextChange Event. This is an event that is called everytime the text inside of this text box is changed
->    2. Name: `txtNumber`
+>    2. Name: `txtCharIndex`
 >    3. Name: `txtDisplayLetter`
 >* Button - 1
 >    1. Name: `btnDisplayLetter` - Content: *Display Letter*
